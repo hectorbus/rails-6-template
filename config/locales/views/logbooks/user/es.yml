@@ -1,0 +1,30 @@
+es:
+  user:
+    self:
+      create: Creaste
+      update: Actualizaste
+      destroy: Eliminaste
+      change:
+        profile: Actualizaste tu información de perfil.
+        session: Iniciaste sesión.
+        password: Cambiaste tu contraseña.
+        someones_password: Cambiaste la contraseña de <b>%{resource}</b>.
+        password_token: Se solícito un cambio de contraseña para tu cuenta.
+      confirmation: Se confirmó tu cuenta.
+    other:
+      create: creó
+      update: actualizó
+      destroy: eliminó
+      change:
+        profile: actualizó su información de perfil.
+        session: inició sesión.
+        password: cambió su contraseña.
+        someones_password: cambió la contraseña de <b>%{resource}</b>
+    your:
+      change:
+        create: creó tu cuenta.
+        profile: actualizó tu información de tu perfil.
+        password: cambió tu contraseña.
+    resource: el usuario <b>%{resource}</b>.
+    password_token: Se solícito un cambio de contraseña para la cuenta de <b>%{resource}</b>.
+    confirmation: Se confirmó la cuenta de <b>%{resource}</b>.

@@ -1,0 +1,34 @@
+doctype 5
+html.wf-roboto-n3-active.wf-roboto-n4-active.wf-roboto-n5-active.wf-roboto-n6-active.wf-roboto-n7-active.wf-poppins-n3-active.wf-poppins-n4-active.wf-poppins-n5-active.wf-poppins-n6-active.wf-poppins-n7-active.wf-active
+  head
+    meta charset='utf-8' /
+    meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" /
+    = display_meta_tags site: 'Template 6'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Roboto:300,400,500,700" rel="stylesheet" /
+    = csrf_meta_tags
+    = csp_meta_tag
+    / Set language to the locale variable
+    = javascript_tag "window.I18n = {locale: '#{I18n.locale}'};"
+
+  body.m-page--fluid.m--skin-.m-content--skin-light2.m-header--fixed.m-header--fixed-mobile.m-aside-left--enabled.m-aside-left--skin-dark.m-aside-left--fixed.m-aside-left--offcanvas.m-footer--push.m-aside--offcanvas-default class="#{'m-brand--minimize m-aside-left--minimize' if cookies[:sidebar_toggle_state].eql?('on')}"
+    .m-grid.m-grid--hor.m-grid--root.m-page
+      = render partial: 'layouts/notifications'
+      = render partial: 'layouts/header'
+      .m-grid__item.m-grid__item--fluid.m-grid.m-grid--ver-desktop.m-grid--desktop.m-body
+        button#m_aside_left_close_btn.m-aside-left-close.m-aside-left-close--skin-dark
+          i.la.la-close
+        = render partial: 'layouts/side_menu'
+        .m-grid__item.m-grid__item--fluid.m-wrapper
+          .m-subheader
+            .d-flex.align-items-center
+              .mr-auto
+                h3.m-subheader__title.m-subheader__title--separator = t("breadcrumbs.#{params[:controller].split('/').first}")
+                ol.m-subheader__breadcrumbs.m-nav.m-nav--inline.custom-breadcrumb
+                  = render_breadcrumbs tag: :li, separator: ' - '
+          .m-content
+            .row
+              = yield
+      /= render partial: 'layouts/footer'
+    = javascript_pack_tag 'application', 'data-turbolinks-eval': 'false', 'data-turbolinks-suppress-warning': 'true'

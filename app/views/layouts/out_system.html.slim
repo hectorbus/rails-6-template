@@ -1,0 +1,24 @@
+doctype 5
+html.wf-roboto-n3-active.wf-roboto-n4-active.wf-roboto-n5-active.wf-roboto-n6-active.wf-roboto-n7-active.wf-poppins-n3-active.wf-poppins-n4-active.wf-poppins-n5-active.wf-poppins-n6-active.wf-poppins-n7-active.wf-active
+  head
+    meta charset='utf-8' /
+    meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" /
+    = display_meta_tags site: 'Template 6'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
+    = csrf_meta_tags
+    = csp_meta_tag
+    = javascript_tag "window.I18n = {locale: '#{I18n.locale}'};"
+    script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"
+    javascript:
+      WebFont.load({
+        google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      });
+  body.m--skin-.m-header--fixed.m-header--fixed-mobile.m-aside-left--enabled.m-aside-left--skin-dark.m-aside-left--fixed.m-aside-left--offcanvas.m-footer--push.m-aside--offcanvas-default
+    .m-grid.m-grid--hor.m-grid--root.m-page
+      = render partial: 'layouts/notifications'
+      = yield
+  = javascript_pack_tag 'application', 'data-turbolinks-eval': 'false', 'data-turbolinks-suppress-warning': 'true'

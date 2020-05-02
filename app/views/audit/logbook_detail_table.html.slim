@@ -1,0 +1,62 @@
+.col-xl-12
+  .m-portlet
+    .m-portlet__head
+      .m-portlet__head-caption
+        .m-portlet__head-title
+          h3.m-portlet__head-text = t('.title')
+      .m-portlet__head-tools
+        ul.m-portlet__nav
+          li.m-portlet__nav-item
+            = search_form_for @search_logbooks, url: logbook_detail_table_path do |f|
+              .form-group.mb-0
+                .input-group.input-search-group
+                  = f.text_field :user_of_User_type_role_key_or_user_full_name_cont,
+                          class: 'form-control form-control-sm border-brand search-field',
+                          style: 'width:28px;',
+                          placeholder: t('helpers.search')
+                  = hidden_field_tag :per_page, @per_page.to_i
+                  span.input-group-append
+                    button.m-portlet__nav-link.btn.btn-brand.m-btn.m-btn--icon.m-btn--icon-only.m-btn--pill.rounded-circle type="submit"
+                      i.la.la-search
+    .m-portlet__body
+      .m-section.mb-0
+        - if @logbooks.empty?
+          .m-section__content
+            .no-results
+              = t('helpers.no_results', resource: params[:q][:user_of_User_type_role_key_or_user_full_name_cont]) if params[:q]
+              = t('helpers.not_created_yet', resource: t('.other').downcase) unless params[:q]
+        - else
+          .m-section__sub
+            .row.m-section__sub style="display: flex"
+              .col-6.pl-0
+                = t('.count_table', count: @logbooks.count)
+              .col-6.per-page-container
+                span.per-page-text
+                  = t('helpers.elements_per_page')
+                = search_form_for @search_logbooks, url: logbook_detail_table_path do |f|
+                  =< select_tag :per_page, options_for_select(pagination_options, @per_page.to_i),
+                    class: 'form-control input-inline per-page-selectpicker per-page-pagination'
+                  = f.hidden_field :user_of_User_type_role_key_or_user_full_name_cont
+          .m-section__content.table-responsive
+            table.table.m-table.m-table--head-separator-brand.table-custom
+              thead
+                tr
+                  th = t '.ago'
+                  th = t '.date'
+                  th = t '.key'
+                  th = t '.last_connection'
+                  th = t '.description'
+              tbody
+                - @logbooks.each do |logbook|
+                  tr.tr-custom
+                    td = "(#{time_ago_in_words(logbook.created_at.to_time)})"
+                    td = l(logbook.created_at, format: :short)
+                    td.text-capitalize = logbook.user_role_key || 'N/A'
+                    td = logbook.remote_address
+                    td = render 'audit/detailed_title', logbook: logbook
+    .m-portlet__foot
+      .row.align-items-center.pagination-container
+        .col-lg-6.m--valign-middle
+          = t('.count_table', count: @logbooks.count)
+        .col-lg-6.m--align-right
+          = paginate(@logbooks)

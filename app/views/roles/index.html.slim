@@ -1,0 +1,106 @@
+.col-xl-12
+  .m-portlet
+    .m-portlet__head
+      .m-portlet__head-caption
+        .m-portlet__head-title
+          h3.m-portlet__head-text = t('.title')
+      .m-portlet__head-tools
+        ul.m-portlet__nav
+          li.m-portlet__nav-item
+            = search_form_for @search_roles, id: 'search' do |f|
+              .form-group.mb-0
+                .input-group.input-search-group
+                  = f.text_field :name_or_key_cont,
+                          class: 'form-control form-control-sm border-brand search-field',
+                          id: 'name_or_key_cont_search',
+                          style: 'width:28px;',
+                          placeholder: t('helpers.search')
+                  = hidden_field_tag :per_page, @per_page.to_i, id: 'per_page_search'
+                  span.input-group-append
+                    button.m-portlet__nav-link.btn.btn-brand.m-btn.m-btn--icon.m-btn--icon-only.m-btn--pill.rounded-circle type="submit"
+                      i.la.la-search
+          li.m-portlet__nav-item
+            = link_item_block new_role_path, class: 'm-portlet__nav-link btn btn-success m-btn m-btn--icon m-btn--icon-only m-btn--pill rounded-circle',
+              data: {'title': (t('helpers.new')), placement: 'top', toggle: 'm-tooltip', 'skin': "dark"}
+              i.la.la-plus
+          / li.m-portlet__nav-item.m-dropdown.m-dropdown--inline.m-dropdown--arrow.m-dropdown--align-right.m-dropdown--align-push aria-expanded="true" m-dropdown-toggle="hover"
+            a.m-portlet__nav-link.btn.btn-danger.m-btn.m-btn--icon.m-btn--icon-only.m-btn--pill.m-dropdown__toggle href="#"
+              i.la.la-ellipsis-v
+            .m-dropdown__wrapper style=("z-index: 101;")
+              span.m-dropdown__arrow.m-dropdown__arrow--right.m-dropdown__arrow--adjust style=("left: auto; right: 21.5px;")
+              .m-dropdown__inner
+                .m-dropdown__body
+                  .m-dropdown__content
+                    ul.m-nav
+                      li.m-nav__section.m-nav__section--first
+                        span.m-nav__section-text Quick Actions
+                      li.m-nav__item
+                        a.m-nav__link href=""
+                          i.m-nav__link-icon.flaticon-share
+                          span.m-nav__link-text Activity
+                      li.m-nav__item
+                        a.m-nav__link href=""
+                          i.m-nav__link-icon.flaticon-chat-1
+                          span.m-nav__link-text Messages
+                      li.m-nav__item
+                        a.m-nav__link href=""
+                          i.m-nav__link-icon.flaticon-info
+                          span.m-nav__link-text FAQ
+                      li.m-nav__item
+                        a.m-nav__link href=""
+                          i.m-nav__link-icon.flaticon-lifebuoy
+                          span.m-nav__link-text Support
+                      li.m-nav__separator.m-nav__separator--fit
+                      li.m-nav__item
+                        a.btn.btn-outline-danger.m-btn.m-btn--pill.m-btn--wide.btn-sm href="#"  Cancel
+    .m-portlet__body
+      .m-section.mb-0
+        - if @roles.empty?
+          .m-section__content
+            .no-results
+              = t('helpers.no_results', resource: params[:q][:name_or_key_cont]) if params[:q]
+              = t('helpers.not_created_yet', resource: t('.other').downcase) unless params[:q]
+        - else
+          .m-section__sub
+            .row.m-section__sub style="display: flex"
+              .col-6.pl-0
+                = t('.count_table', count: @roles.count)
+              .col-6.per-page-container
+                span.per-page-text
+                  = t('helpers.elements_per_page')
+                = search_form_for @search_roles do |f|
+                  =< select_tag :per_page, options_for_select(pagination_options, @per_page.to_i),
+                    class: 'form-control input-inline per-page-selectpicker per-page-pagination'
+                  = f.hidden_field :name_or_key_cont
+          .m-section__content.table-responsive
+            table.table.m-table.m-table--head-separator-brand.table-custom
+              thead
+                tr
+                  th = t '.name'
+                  th = t '.key'
+                  th = t '.description'
+                  th.actions-3.text-center = t 'helpers.actions'
+              tbody
+                - @roles.each do |role|
+                  tr.tr-custom
+                    td = role.name
+                    td = role.key
+                    td = role.description
+                    td.actions-3.text-center
+                      = link_item_block edit_role_path(role), data: {title: (t('helpers.show_and_edit')), placement: 'top',
+                              toggle: 'm-tooltip', 'skin': "dark"}, class: 'btn btn-sm btn-pill btn-outline-primary' do
+                        i.flaticon-edit-1
+                      = link_item_block role_permissions_path(role.id), data: { title: t('.assign_permissions'), placement: 'top',
+                              toggle: 'm-tooltip', 'skin': "dark"}, class: 'btn btn-sm btn-pill btn-outline-warning' do
+                        i.flaticon-cancel
+                      - if has_policy(Role, %w(destroy))
+                        = link_to 'javascript:;', class: 'btn btn-sm btn-pill btn-outline-danger btn-destroy', data: { title: t('helpers.destroy'),
+                          placement: 'top', toggle: 'm-tooltip', 'skin': "dark", resource: :roles, 'resource-id': role.id,
+                          'resource-message': t('questions.destroy', resource: t('.resource'), name: role.name) } do
+                          i.flaticon-delete
+    .m-portlet__foot
+      .row.align-items-center.pagination-container
+        .col-lg-6.m--valign-middle
+          = t('.count_table', count: @roles.count)
+          .col-lg-6.m--align-right
+            = paginate(@roles)

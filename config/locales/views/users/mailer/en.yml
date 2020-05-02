@@ -1,0 +1,24 @@
+en:
+  users:
+    mailer:
+      confirmation_instructions:
+        welcome: Welcome %{name}!
+        confirm: Confirm my account
+        confirm_step_message: Confirm your email account by clicking the button below. Once confirmed, you can enter the system after entering your email and password.
+      reset_password_instructions:
+        hello: Hello %{name}!
+        instructions: Someone has requested a link to change your password. You can do this through the button below.
+        change_password: Change password
+        ignore: If you didn't request this, please ignore this email.
+        message: Your password won't change until you access the button above and create a new one.
+      unlock_instructions:
+        hello: Hello %{name}!
+        message: Your account has been blocked because of an excessive number of login attempts.
+        instructions: To unlock your account click on the button below.
+        unlock: Unlock
+      email_changed:
+        hello: Hello %{name}!
+        message: We're contacting you to notify you that your email is being changed to %{email}.
+      password_change:
+        hello: Hello %{name}!
+        message: We're contacting you to notify you that your password has been changed.

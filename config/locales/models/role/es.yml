@@ -1,0 +1,11 @@
+es:
+  activerecord:
+    attributes:
+      role:
+        name: Nombre
+        description: Descripción
+        key: Llave
+        scope: Scope
+  scope:
+    total: Total
+    owner: Propietario

@@ -1,0 +1,23 @@
+en:
+  permissions:
+    index:
+      title: Permissions
+      resource: the permission
+      name: Name
+      description: Description
+      controller: Controller
+      action: Activities
+      one: Permission
+      other: Permissions
+      action_seeds: Create Seeds
+      count_table:
+        one: 1 Permission
+        other: '%{count} Permissions'
+    form:
+      title: Permission
+      role: Role
+      back: Go to permissions
+      resource: permission
+      back_resource: permissions
+  breadcrumbs:
+    permissions: Permissions

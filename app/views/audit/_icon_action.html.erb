@@ -1,0 +1,12 @@
+<% case %>
+  <% when logbook.auditable_type == 'PermissionsRole' %>
+    <i class="fa fa-genderless m--font-aqua fa-2x"></i>
+  <% when logbook.action == 'create' %>
+    <i class="fas fa-genderless m--font-success fa-2x"></i>
+  <% when logbook.action == 'update' %>
+    <i class="fa fa-genderless m--font-info fa-2x"></i>
+  <% when logbook.action == 'destroy' %>
+    <i class="fa fa-genderless m--font-danger fa-2x"></i>
+  <% else %>
+    <i class="fa fa-genderless m--font-secondary fa-2x"></i>
+<% end %>

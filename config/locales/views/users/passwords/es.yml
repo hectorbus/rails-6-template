@@ -1,0 +1,13 @@
+es:
+  users:
+    passwords:
+      new:
+        title: Nueva contraseña
+        forgot_password: ¿Olvidaste tu constraseña?
+        send_instructions: Enviar instrucciones de restablecimiento.
+      edit:
+        title: Cambiar contraseña
+        change_password: Cambia tu contraseña
+        password_instructions: 'Tu contraseña debe tener al menos %{char} caracteres.'
+        new_password: Nueva contraseña
+        password_confirmation: Confirmar contraseña

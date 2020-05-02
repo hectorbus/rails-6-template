@@ -1,0 +1,6 @@
+en:
+  users:
+    confirmations:
+      new:
+        resend_email: Didn't recieve confirmation email?
+        resend_instructions: Resend confirmation instructions.

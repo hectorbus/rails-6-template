@@ -1,0 +1,9 @@
+es:
+  users:
+    shared:
+      links:
+        forgot_pss: ¿Olvidaste tu constraseña?
+        forgot_password: '¿Olvidaste tu contraseña? No te preocupes, haz click %{link} para restablecerla.'
+        email_confirmation: '¿No recibiste el correo de confirmación? Haz click %{link} para reenviar el correo.'
+        didnt_receive_email: ¿No recibiste el correo de confirmación?
+        click_here: Haz click aquí.

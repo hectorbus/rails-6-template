@@ -1,0 +1,7 @@
+en:
+  users:
+    sessions:
+      new:
+        sign_in: Sign in
+        sign_in_subtitle: Sign In to your account.
+        login: Login

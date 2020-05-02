@@ -1,0 +1,9 @@
+en:
+  users:
+    shared:
+      links:
+        forgot_pss: Forgot your password?
+        forgot_password: "Forgot your password? Don't worry, click %{link} to restore it."
+        email_confirmation: "Didn't receive email confirmation? Click %{link} to resend the email."
+        didnt_receive_email: Didn't receive email confirmation?
+        click_here: Click here.

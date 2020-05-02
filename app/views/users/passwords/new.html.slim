@@ -1,0 +1,18 @@
+.m-grid.m-grid--hor.m-grid--root.m-page.bg-container style="background-image: url('#{asset_path('bg/bg-3.jpg')}');"
+  .container
+    .row.justify-content-center
+      .col-md-5
+        .card-group
+          .card.p-4
+            .card-body
+              h1 = t('.forgot_password')
+              p.text-muted = t('.send_instructions')
+              = form_for resource, as: resource_name, url: password_path(resource_name), validate: true,
+                      html: { method: :post } do |f|
+                .form-group.m-form__group
+                  = f.email_field :email, autofocus: true, autocomplete: 'off',  class: 'form-control m-input', placeholder: t('helpers.email')
+                .d-flex.justify-content-between
+                  = link_to unauthenticated_root_path, class: 'text-muted pt-2'
+                    i.icon-arrow-left.mr-1
+                    = t('helpers.back')
+                  = f.submit t('helpers.send'), class: 'btn btn-focus m-btn--pill m-btn--custom'

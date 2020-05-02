@@ -1,0 +1,18 @@
+es:
+  audit:
+    logbook_detail_table:
+      title: Bitácora detallada
+      ago: Hace
+      date: Fecha
+      key: Llave
+      last_connection: Última conexión
+      description: Descripción
+      count_table:
+        one: 1 Registro
+        other: '%{count} Registros'
+      one: registro
+      other: registros
+  breadcrumbs:
+    audits: Bitácora
+    timeline: Bitácora timeline
+    detailed: Bitácora detallada

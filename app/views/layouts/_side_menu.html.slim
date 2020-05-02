@@ -1,0 +1,100 @@
+#m_aside_left.m-grid__item.m-aside-left.m-aside-left--skin-dark
+  #m_ver_menu.m-aside-menu.m-aside-menu--skin-dark.m-aside-menu--submenu-skin-dark.m-scroller.ps.ps--active-y m-menu-dropdown-timeout="500" m-menu-scrollable="1" m-menu-vertical="1" style=("position: relative; height: 728px; overflow: hidden;")
+    ul.m-menu__nav.m-menu__nav--dropdown-submenu-arrow
+      li class="m-menu__item #{'m-menu__item--active' if controller_name.eql?('home')}" aria-haspopup="true"
+        a.m-menu__link href="/"
+          i.m-menu__link-icon.flaticon-line-graph
+          span.m-menu__link-title
+            span.m-menu__link-wrap
+              span.m-menu__link-text = t('.dashboard')
+      li.m-menu__section
+        h4.m-menu__section-text = t('.administration')
+        i.m-menu__section-icon.flaticon-more-v2
+      - if has_policy('Users::Registrations', %w(index new_user))
+        li aria-haspopup="true" m-menu-submenu-toggle="hover" class="m-menu__item m-menu__item--submenu #{'m-menu__item--open m-menu__item--active' if controller_name.eql?('registrations')}"
+          a.m-menu__link.m-menu__toggle href="javascript:;"
+            i.m-menu__link-icon.flaticon-users
+            span.m-menu__link-text = t('.users')
+            i.m-menu__ver-arrow.la.la-angle-right
+          .m-menu__submenu
+            span.m-menu__arrow
+            ul.m-menu__subnav
+              - if has_policy('Users::Registrations', %w(new_user))
+                li.m-menu__item aria-haspopup="true"
+                  = link_to(new_user_path, class: 'm-menu__link')
+                    i.m-menu__link-bullet.m-menu__link-bullet--dot
+                      span
+                    span.m-menu__link-text = t('.new_user')
+              - if has_policy('Users::Registrations', %w(index))
+                li.m-menu__item aria-haspopup="true"
+                  = link_to(user_registrations_path, class: 'm-menu__link')
+                    i.m-menu__link-bullet.m-menu__link-bullet--dot
+                      span
+                    span.m-menu__link-text = t('.index_masc')
+      - if has_policy(Role, %w(index new))
+        li aria-haspopup="true" m-menu-submenu-toggle="hover" class="m-menu__item m-menu__item--submenu #{'m-menu__item--open m-menu__item--active' if controller_name.eql?('roles')}"
+          a.m-menu__link.m-menu__toggle href="javascript:;"
+            i.m-menu__link-icon.flaticon-network
+            span.m-menu__link-text = t('.roles')
+            i.m-menu__ver-arrow.la.la-angle-right
+          .m-menu__submenu
+            span.m-menu__arrow
+            ul.m-menu__subnav
+              - if has_policy(Role, %w(new))
+                li.m-menu__item aria-haspopup="true"
+                  = link_to(new_role_path, class: 'm-menu__link') do
+                    i.m-menu__link-bullet.m-menu__link-bullet--dot
+                      span
+                    span.m-menu__link-text = t('.new_role')
+              - if has_policy(Role, %w(index))
+                li.m-menu__item aria-haspopup="true"
+                    = link_to(roles_path, class: 'm-menu__link') do
+                      i.m-menu__link-bullet.m-menu__link-bullet--dot
+                        span
+                      span.m-menu__link-text = t('.index_masc')
+      - if has_policy(Permission, %w(index new))
+        li aria-haspopup="true" m-menu-submenu-toggle="hover" class="m-menu__item m-menu__item--submenu #{'m-menu__item--open m-menu__item--active' if controller_name.eql?('permissions')}"
+          a.m-menu__link.m-menu__toggle href="javascript:;"
+            i.m-menu__link-icon.flaticon-cancel
+            span.m-menu__link-text = t('.permissions')
+            i.m-menu__ver-arrow.la.la-angle-right
+          .m-menu__submenu
+            span.m-menu__arrow
+            ul.m-menu__subnav
+              - if has_policy(Permission, %w(new))
+                li.m-menu__item aria-haspopup="true"
+                  = link_to new_permission_path, class: 'm-menu__link' do
+                    i.m-menu__link-bullet.m-menu__link-bullet--dot
+                      span
+                    span.m-menu__link-text = t('.new_permission')
+              - if has_policy(Permission, %w(index))
+                li.m-menu__item aria-haspopup="true"
+                  = link_to permissions_path, class: 'm-menu__link' do
+                    i.m-menu__link-bullet.m-menu__link-bullet--dot
+                      span
+                    span.m-menu__link-text = t('.index_masc')
+      - if has_policy(Audit, %w(logbook_timeline logbook_detail_table))
+        li aria-haspopup="true" m-menu-submenu-toggle="hover" class="m-menu__item m-menu__item--submenu #{'m-menu__item--open m-menu__item--active' if controller_name.eql?('audits')}"
+          a.m-menu__link.m-menu__toggle href="javascript:;"
+            i.m-menu__link-icon.flaticon-list-2
+            span.m-menu__link-text = t('.logbook')
+            i.m-menu__ver-arrow.la.la-angle-right
+          .m-menu__submenu
+            span.m-menu__arrow
+            ul.m-menu__subnav
+              - if has_policy(Audit, %w(logbook_timeline))
+                li.m-menu__item aria-haspopup="true"
+                  = link_to(logbook_timeline_path, class: 'm-menu__link') do
+                    i.m-menu__link-bullet.m-menu__link-bullet--dot
+                      span
+                    span.m-menu__link-text = t('.timeline')
+              - if has_policy(Audit, %w(logbook_detail_table))
+                li.m-menu__item aria-haspopup="true"
+                  = link_to(logbook_detail_table_path, class: 'm-menu__link') do
+                    i.m-menu__link-bullet.m-menu__link-bullet--dot
+                      span
+                    span.m-menu__link-text = t('.detail')
+    .ps__rail-x style=("left: 0px; bottom: 0px;")
+      .ps__thumb-x style=("left: 0px; width: 0px;") tabindex="0"
+    .ps__rail-y style=("top: 0px; height: 728px; right: 4px;")
+      .ps__thumb-y style=("top: 0px; height: 486px;") tabindex="0"

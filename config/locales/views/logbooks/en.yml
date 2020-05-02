@@ -1,0 +1,18 @@
+en:
+  audit:
+    logbook_detail_table:
+      title: Detailed Logbook
+      ago: Ago
+      date: Date
+      key: Key
+      last_connection: Last connection
+      description: Description
+      count_table:
+        one: 1 Logbook
+        other: '%{count} Logbooks'
+      one: record
+      other: records
+  breadcrumbs:
+    audits: Logbooks
+    timeline: Timeline
+    detailed: Detailed logbook

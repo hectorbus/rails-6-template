@@ -1,0 +1,28 @@
+.m-grid.m-grid--hor.m-grid--root.m-page
+  .m-grid__item.m-grid__item--fluid.m-grid.m-grid--hor.m-login.m-login--signin.m-login--2.m-login-2--skin-2 style="background-image: url('#{asset_path('bg/bg-3.jpg')}');"
+    .m-grid__item.m-grid__item--fluid.m-login__wrapper
+      .m-login__container
+        .m-login__logo
+          = image_tag 'logo.png', style: 'width: 300px;'
+        .m-login__signin
+          = form_for resource, as: resource_name, url: session_path(resource_name), layout: :horizontal, html: {class: 'm-login__form m-form'} do |f|
+            .form-group.m-form__group
+              = f.text_field :email, autofocus: true, autocomplete: 'off',  class: 'form-control m-input', placeholder: t('helpers.email')
+            .form-group.m-form__group
+              = f.password_field :password, autocomplete: 'off', class: 'form-control m-input m-login__form-input--last', placeholder: t('helpers.password')
+            .row.m-login__form-sub
+              .col.m--align-left.m-login__form-left
+                = f.label :remember_me, class: 'm-checkbox m-checkbox--focus' do
+                  = f.check_box :remember_me
+                  = t('activerecord.attributes.user.remember_me')
+                  span
+              .col.m--align-right.m-login__form-right
+                = link_to new_password_path(resource_name), id: 'm_login_forget_password', class: 'm-link'
+                  = t('users.shared.links.forgot_pss')
+            .m-login__form-action
+              button#m_login_signin_submit.btn.btn-focus.m-btn.m-btn--pill.m-btn--custom.m-btn--air.m-login__btn.m-login__btn--primary = t('.login')
+          .m-login__account
+            span.m-login__account-msg
+              = t('users.shared.links.didnt_receive_email')
+            =< link_to new_confirmation_path(resource_name), id: 'm_login_signup', class: 'm-link m-link--light m-login__account-link'
+              = t('users.shared.links.click_here')

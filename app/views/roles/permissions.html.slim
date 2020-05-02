@@ -1,0 +1,12 @@
+.col-xl-12
+  .m-portlet
+    .m-portlet__head
+      .m-portlet__head-caption
+        .m-portlet__head-title
+          h3.m-portlet__head-text = @role.name
+
+    .m-portlet__body#role_permissions(data-role-id=@role.id data-permissions=@permissions.to_json data-role-permission-ids=@role.permission_ids)
+    .m-portlet__foot
+      - if has_policy(Role, %w(index))
+        =< link_to roles_path, class: 'btn btn-primary'
+          = t('helpers.go_to', resource: t('.back_resource'))

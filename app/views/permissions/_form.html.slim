@@ -1,0 +1,29 @@
+= form_for permission, validate: true, html: {class: 'm-form m-form--fit'} do |f|
+  .m-portlet__body
+    .form-group.m-form__group.row
+      = f.label :name, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :name, class: 'form-control m-input', placeholder: t('activerecord.attributes.role.name')
+    .form-group.m-form__group.row
+      = f.label :description, class:'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :description, class:'form-control m-input', placeholder: t('activerecord.attributes.role.key')
+    .form-group.m-form__group.row
+      = f.label :controller, class:'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.select :controller, controllers.sort.collect {|c| [c.underscore.titleize, c]},
+                {include_blank: t('helpers.select.prompt')}, class: 'form-control',
+                data: {url: get_controller_actions_path}
+    .form-group.m-form__group.row
+      = f.label :action, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.select :action, actions.sort.collect {|a| [a.titleize, a]},
+                {include_blank: t('helpers.select.prompt')}, class: 'form-control', data: { value: f.object&.action }
+  .m-portlet__foot.m-portlet__no-border.m-portlet__foot--fit
+    .m-form__actions.m-form__actions--solid
+      .row
+        .col-lg-12
+          = f.submit t('helpers.submit.submit', model: t('.resource')), class: 'btn btn-primary'
+          - if has_policy(Permission, %w(index))
+            =< link_to permissions_path, class: 'btn btn-secondary'
+              = t('helpers.go_to', resource: t('.back_resource'))

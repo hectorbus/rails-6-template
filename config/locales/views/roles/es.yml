@@ -1,0 +1,36 @@
+es:
+  roles:
+    index:
+      title: Roles
+      resource: el rol
+      name: Nombre
+      description: Descripción
+      key: Llave
+      one: Rol
+      other: Roles
+      assign_permissions: Asignar permisos
+      count_table:
+        one: 1 Rol
+        other: '%{count} Roles'
+    form:
+      title: Roles
+      resource: rol
+      name: Nombre
+      description: Descripción
+      key: Llave
+      back: Ir a roles
+      back_resource: roles
+    permissions:
+      title: Permisos
+      name: Nombre
+      description: Descripción
+      controller: Controlador
+      action: Acción
+      back_resource: roles
+    new:
+      title: Nuevo rol
+    edit:
+      title: Editar rol
+  breadcrumbs:
+    roles: Roles
+    permissions_for: Permisos para %{permission_name}

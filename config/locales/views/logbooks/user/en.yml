@@ -1,0 +1,30 @@
+en:
+  user:
+    self:
+      create: You created
+      update: You updated
+      destroy: You deleted
+      change:
+        profile: You updated your profile information.
+        session: You logged in.
+        password: You changed your password
+        someones_password: You changed the password of <b>%{resource}</b>.
+        password_token: A password change was requested for your account.
+      confirmation: Your account was confirmed
+    other:
+      create: created
+      update: updated
+      destroy: deleted
+      change:
+        profile: updated your profile information.
+        session: logged in.
+        password: changed your password.
+        someones_password: changed the password of <b>%{resource}</b>
+    your:
+      change:
+        create: created your account.
+        profile: updated your profile information.
+        password: changed your password.
+    resource: the user <b>%{resource}</b>.
+    password_token: a password change was solicited for the account of <b>%{resource}</b>.
+    confirmation: The account of <b>%{resource}</b> was confirmed.
