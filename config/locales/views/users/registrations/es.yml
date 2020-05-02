@@ -1,0 +1,93 @@
+es:
+  users:
+    registrations:
+      new:
+        title: Plantilla
+        sign_up: Registrarse
+        email: Correo
+        password: Contraseña
+        confirmation: Confirmar contraseña
+      edit:
+        my_profile: Mi perfil
+        title: Editar perfil
+        email: Correo electrónico
+        password: Contraseña
+        password_confirmation: Confirmar contraseña
+        current_password: Contraseña actual
+        waiting_confirmation: 'Esperando confirmación para:'
+        leave_blank:  (dejar en blanco si no requieres cambiarla)
+        need_password:  (Necesitamos tu contraseña actual para confirmar tus cambios)
+        update: Actualizar
+        cancel_account: Cancelar mi cuenta
+        back: Regresar
+        back_resource: home
+        unhappy: '¿Descontento?'
+        resource: usuario
+        profile: perfil
+        profile_image: imagen de perfil
+        need_image: Debes seleccionar una imagen primero
+        change_password: Cambiar contraseña
+        log_out: Salir
+      index:
+        title: Usuarios
+        resource: el usuario
+        email: Correo electrónico
+        actions: Acciones
+        one: Usuario
+        other: Usuarios
+        role: Rol
+        first_name: Nombre
+        last_name: Apellido paterno
+        maiden_name: Apellido materno
+        username: Nombre de usuario
+        name: Nombre
+        count_table:
+          one: 1 Usuario
+          other: '%{count} Usuarios'
+      new_user:
+        title: Nuevo usuario
+        resource: usuario
+        back: Ir a usuarios
+        back_resource: usuarios
+      edit_user:
+        profile: "Perfil de %{user}"
+        full_name: Nombre completo
+        resource: usuario
+        title: Editar usuario
+        back: Ir a usuarios
+        back_resource: usuarios
+        change_password: Cambiar contraseña
+        log_out: Salir
+      show:
+        my_profile: Mi perfil
+        profile: "Perfil de %{user}"
+        back: Ir a usuarios
+        email: Correo electrónico
+        role: Rol
+        full_name: Nombre completo
+        first_name: Nombre
+        last_name: Apellido paterno
+        maiden_name: Apellido materno
+        username: Nombre de usuario
+        change_password: Cambiar contraseña
+        log_out: Salir
+      change_password:
+        my_profile: Mi perfil
+        change_password: Cambiar contraseña
+        change_my_password: Cambiar mi contraseña
+        resource: contraseña
+        back_resource: home
+        log_out: Salir
+      change_user_password:
+        profile: "Perfil de %{user}"
+        change_password: Cambiar contraseña
+        change_user_password: "Cambiar contraseña de %{user}"
+        resource: contraseña
+        back_resource: usuarios
+        log_out: Salir
+      form:
+        title: Usuario
+        resource: usuario
+  breadcrumbs:
+    users: Usuarios
+    change_password: Cambiar contraseña

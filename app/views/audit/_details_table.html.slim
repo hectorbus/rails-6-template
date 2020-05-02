@@ -1,0 +1,31 @@
+.col-12
+  .row
+    - logbook.audited_changes.each do |r|
+      - if r[1]
+        .col-md-6
+          b
+            = r[0].capitalize
+            |:
+          span>
+          // Format for date type values
+          - if r[0].to_s.split(//).last(2).join == 'at'
+            - if r[1].is_a?(Array) and r[1].length == 2
+              = l(r[1][1].to_date, format: :short)
+            - else
+              = l(r[1].to_date, format: :short)
+          - elsif r[0] == 'sign_in_count'
+            = r[1][1]
+          // Format for old and new name
+          - elsif (r[0] == 'first_name') or (r[0] == 'name') and (r[1].length == 2)
+            br
+            i = t('helpers.old_name')
+            | :
+            span>
+            = r[1][0]
+            br
+            i = t('helpers.new_name')
+            | :
+            span>
+            = r[1][1]
+          - else
+            = r[1]

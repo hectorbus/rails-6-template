@@ -1,0 +1,35 @@
+es:
+  layouts:
+    side_menu:
+      dashboard: Dashboard
+      administration: Administración
+      users: Usuarios
+      new_user: Crear usuario
+      permissions: Permisos
+      new_permission: Crear permiso
+      roles: Roles
+      logbook: Bitácora
+      timeline: Timeline
+      detail: Detallada
+      new_role: Crear rol
+      index_masc: Ver todos
+      index_fem: Ver todas
+    top_bar:
+      account: Cuenta
+      profile: Perfil
+      change_password: Cambiar contraseña
+      log_out: Salir
+    header:
+      select_language: Selecciona tu idioma
+      english: Inglés
+      spanish: Español
+      account: Cuenta
+      profile: Perfil
+      change_password: Cambiar contraseña
+      log_out: Salir
+    application:
+      copyright: Todos los derechos reservados.
+  will_paginate:
+    next_label: Siguiente
+    previous_label: Anterior
+    page_gap: ...

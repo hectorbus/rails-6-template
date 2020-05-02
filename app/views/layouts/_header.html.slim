@@ -1,0 +1,82 @@
+header#m_header.m-grid__item.m-header m-minimize-mobile-offset="200" m-minimize-offset="200"
+  .m-container.m-container--fluid.m-container--full-height
+    .m-stack.m-stack--ver.m-stack--desktop
+      div class="m-stack__item m-brand #{ user_with_side_menu? ? "m-brand--skin-dark" : "background-header" }"
+        .m-stack.m-stack--ver.m-stack--general
+          .m-stack__item.m-stack__item--middle.m-brand__logo class="#{ 'text-lg-center text-md-left' unless user_with_side_menu? }"
+            a class="header-title-#{ (user_with_side_menu? ? 'white' : 'black')}" href="/"
+              = image_tag 'logo-sm'
+          .m-stack__item.m-stack__item--middle.m-brand__tools
+            - if user_with_side_menu?
+              a#m_aside_left_minimize_toggle.m-brand__icon.m-brand__toggler.m-brand__toggler--left.m--visible-desktop-inline-block href="javascript:;"
+                span
+              a#m_aside_left_offcanvas_toggle.m-brand__icon.m-brand__toggler.m-brand__toggler--left.m--visible-tablet-and-mobile-inline-block href="javascript:;"
+                span
+            a#m_aside_header_topbar_mobile_toggle.m-brand__icon.m--visible-tablet-and-mobile-inline-block href="javascript:;"
+              i.flaticon-more
+      #m_header_nav.m-stack__item.m-stack__item--fluid.m-header-head
+        = render partial: 'layouts/header_menu'
+        #m_header_topbar.m-topbar.m-stack.m-stack--ver.m-stack--general.m-stack--fluid
+          .m-stack__item.m-topbar__nav-wrapper
+            ul.m-topbar__nav.m-nav.m-nav--inline
+              li.m-nav__item.m-topbar__languages.m-dropdown.m-dropdown--small.m-dropdown--header-bg-fill.m-dropdown--arrow.m-dropdown--align-right.m-dropdown--mobile-full-width aria-expanded="true" m-dropdown-toggle="click"
+                a.m-nav__link.m-dropdown__toggle#icon-set-language href="#"
+                  span.m-nav__link-text
+                    - if I18n.locale == :en
+                      = image_tag 'flags/020-flag.svg', class: 'm-topbar__language-selected-img'
+                    - else
+                      = image_tag 'flags/021-mexico.svg', class: 'm-topbar__language-selected-img'
+                .m-dropdown__wrapper style=("z-index: 101;")
+                  span.m-dropdown__arrow.m-dropdown__arrow--right.m-dropdown__arrow--adjust style=("left: auto; right: 5px;")
+                  .m-dropdown__inner
+                    .m-dropdown__header.m--align-center style=("background: url(#{ asset_path('bg/quick_actions_bg.jpg') }); background-size: cover;")
+                      span.m-dropdown__header-subtitle = t('.select_language')
+                    .m-dropdown__body
+                      .m-dropdown__content
+                        ul.m-nav.m-nav--skin-light
+                          li.m-nav__item.m-nav__item--active
+                            - if I18n.locale == :es
+                              = link_to set_language_english_path, class: 'm-nav__link', data: {turbolinks: false}
+                                  span.m-nav__link-icon
+                                    = image_tag 'flags/020-flag.svg', class: 'm-topbar__language-img'
+                                  span.m-nav__link-title.m-topbar__language-text.m-nav__link-text = t('.english')
+                            - else
+                              = link_to set_language_spanish_path, class: 'm-nav__link', data: {turbolinks: false}
+                                  span.m-nav__link-icon
+                                    = image_tag 'flags/021-mexico.svg', class: 'm-topbar__language-img'
+                                  span.m-nav__link-title.m-topbar__language-text.m-nav__link-text = t('.spanish')
+
+              li.m-nav__item.m-topbar__user-profile.m-topbar__user-profile--img.m-dropdown.m-dropdown--medium.m-dropdown--arrow.m-dropdown--header-bg-fill.m-dropdown--align-right.m-dropdown--mobile-full-width.m-dropdown--skin-light m-dropdown-toggle="click"
+                a.m-nav__link.m-dropdown__toggle href="#"
+                  span.m-topbar__userpic
+                    = image_tag current_user.avatar_thumb, class: 'm--img-rounded m--marginless'
+                  span.m-topbar__username.m--hide = ""
+                .m-dropdown__wrapper
+                  span.m-dropdown__arrow.m-dropdown__arrow--right.m-dropdown__arrow--adjust
+                  .m-dropdown__inner
+                    .m-dropdown__header.m--align-center style=("background: url(#{ asset_path('bg/user_profile_bg.jpg') }); background-size: cover;")
+                      .m-card-user.m-card-user--skin-dark
+                        .m-card-user__pic
+                          = image_tag current_user.avatar_thumb, class: 'm--img-rounded m--marginless'
+                        .m-card-user__details
+                          span.m-card-user__name.m--font-weight-500 = current_user.email
+                          a.m-card-user__email.m--font-weight-300.m-link href="" = current_user.email
+                    .m-dropdown__body
+                      .m-dropdown__content
+                        ul.m-nav.m-nav--skin-light
+                          li.m-nav__section.m--hide
+                            span.m-nav__section-text Section
+                          li.m-nav__item
+                            = link_to edit_profile_path, class: 'm-nav__link' do
+                              i.m-nav__link-icon.flaticon-profile-1
+                              span.m-nav__link-title
+                                span.m-nav__link-wrap
+                                  span.m-nav__link-text = t('.profile')
+                          li.m-nav__item
+                            = link_to change_password_path, class: 'm-nav__link' do
+                              i.m-nav__link-icon.flaticon-lock
+                              span.m-nav__link-text = t('.change_password')
+                          li.m-nav__separator.m-nav__separator--fit
+                          li.m-nav__item
+                            = link_to destroy_user_session_path, method: :delete, class: 'btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder'
+                              = t('.log_out')

@@ -1,0 +1,93 @@
+en:
+  users:
+    registrations:
+      new:
+        title: Template
+        sign_up: Sign up
+        email: Email
+        password: Password
+        confirmation: Password confirmation
+      edit:
+        my_profile: My profile
+        title: Edit profile
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation
+        current_password: Current password
+        waiting_confirmation: 'Currently waiting confirmation for:'
+        leave_blank:  (leave blank if you don't want to change it)
+        need_password:  (we need your current password to confirm your changes)
+        update: Update
+        cancel_account: Cancel my account
+        back: Back
+        back_resource: home
+        unhappy: 'Unhappy?'
+        resource: user
+        profile: profile
+        profile_image: profile image
+        need_image: You must select an image first
+        change_password: Change password
+        log_out: Log Out
+      index:
+        title: Users
+        resource: the user
+        email: E-mail
+        actions: Actions
+        one: User
+        other: Users
+        role: Role
+        first_name: First name
+        last_name: Last name
+        maiden_name: Mother maiden name
+        username: Username
+        name: Name
+        count_table:
+          one: 1 User
+          other: '%{count} Users'
+      new_user:
+        title: New user
+        resource: user
+        back: Go to users
+        back_resource: users
+      edit_user:
+        profile: "%{user} profile"
+        full_name: Name
+        resource: user
+        title: Edit user
+        back: Go to users
+        back_resource: users
+        change_password: Change password
+        log_out: Log Out
+      show:
+        my_profile: My profile
+        profile: "%{user} profile"
+        back: Go to users
+        email: E-mail
+        role: Role
+        full_name: Name
+        first_name: First name
+        last_name: Last name
+        maiden_name: Mother maiden name
+        username: Username
+        change_password: Change password
+        log_out: Log Out
+      change_password:
+        my_profile: My profile
+        change_password: Change password
+        change_my_password: Change my password
+        resource: password
+        back_resource: home
+        log_out: Log Out
+      change_user_password:
+        profile: "%{user} profile"
+        change_password: Change password
+        change_user_password: "Change %{user} password"
+        resource: password
+        back_resource: users
+        log_out: Log Out
+      form:
+        title: User
+        resource: user
+  breadcrumbs:
+    users: Users
+    change_password: Change password

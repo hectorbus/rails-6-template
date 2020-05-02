@@ -1,0 +1,279 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%m-%d-%Y"
+      long: "%B %d, %Y"
+      short: "%b %d"
+      custom: "%d-%b-%Y"
+      logbook_first_date: "%d %B"
+      logbook_second_date: "%d %B, %Y"
+    month_names:
+    -
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :month
+    - :day
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: Must be accepted.
+      blank: Can't be blank.
+      present: Must be blank.
+      confirmation: Doesn't match %{attribute}.
+      empty: Can't be empty.
+      equal_to: Must be equal to %{count}.
+      even: Must be even.
+      exclusion: Is reserved.
+      greater_than: Must be greater than %{count}.
+      greater_than_or_equal_to: Must be greater than or equal to %{count}.
+      inclusion: Is not included in the list.
+      invalid: Is invalid
+      less_than: Must be less than %{count}.
+      less_than_or_equal_to: Must be less than or equal to %{count}.
+      not_a_number: Is not a number.
+      not_an_integer: Must be an integer.
+      odd: Must be odd.
+      record_invalid: 'Validation failed: %{errors}'
+      required: Must select an option.
+      restrict_dependent_destroy:
+        one: Cannot delete record because a dependent %{record} exists.
+        many: Cannot delete record because dependent %{record} exist.
+      taken: Has already been taken.
+      too_long:
+        one: Is too long (maximum is 1 character).
+        other: Is too long (maximum is %{count} characters).
+      too_short:
+        one: Is too short (minimum is 1 character).
+        other: Is too short (minimum is %{count} characters).
+      wrong_length:
+        one: Is the wrong length (should be 1 character).
+        other: Is the wrong length (should be %{count} characters).
+      other_than: Must be other than %{count}.
+      mini_magick_processing_error: only images are accepted.
+      extension_whitelist_error: only images are accepted.
+  helpers:
+    select:
+      prompt: Please select
+      simple: Select
+      no_options: No options available
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+    show: Show
+    edit: Edit
+    show_and_edit: Show and edit
+    edit_variables: Edit variables
+    destroy: Delete
+    actions: Actions
+    tools: Tools
+    new: New
+    generate_seeds: Generate seeds
+    search: Search
+    synchronize: Synchronize
+    email: Email
+    password: Password
+    password_confirmation: Password confirmation
+    edit_password: Edit password
+    loading: Loading...
+    load_more: Load more elements
+    advanced_search: Advanced Search
+    resource_name: Resource Name
+    upload_date: Upload date
+    upload_date_start_title: Start date
+    upload_date_end_title: End date
+    extension: Extension
+    extension_example: E.g. mp3 or mp3, 3pg, mov
+    image_title: 'Name: %{name} | Username: %{username} | Resolution: %{resolution} | Upload date: %{date}'
+    resource_title: 'Name: %{name} | Username: %{username} | Upload date: %{date}'
+    email_example: example@domain.com
+    send: Send
+    back: Back
+    here: here
+    home: Home
+    grid_view: Grid view
+    list_view: List view
+    recycle_bin_view: Recycle bin
+    restore: Restore
+    username: Username
+    no_results: No results found for "%{resource}".
+    not_created_yet: No %{resource} have been created yet.
+    change_password: Change password
+    old_name: Old name
+    new_name: New name
+    spanish: Spanish
+    english: English
+    elements_per_page: Elements per page
+    go_to: 'Go to %{resource}'
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", and "
+      two_words_connector: " and "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%a, %d %b %Y %I:%M:%S %p %Z"
+      long: "%B %d, %Y %I:%M %p"
+      short: "%d %b %I:%M %p"
+      custom: "%d/%m/%Y, %H:%M"
+      views: "%d %b %Y, %l:%M %p"
+      timeline_day: "%b %d %Y"
+      timeline: "%l:%M %p"
+    pm: pm
+  questions:
+    destroy: 'Are you sure to delete the %{resource}: %{name}?'

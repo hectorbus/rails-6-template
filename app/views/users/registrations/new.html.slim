@@ -1,0 +1,29 @@
+.app.flex-row.align-items-center
+  .container
+    .row.justify-content-center
+      .col-md-6
+        .card.mx-4
+          .card-body.p-4
+            h1 Register
+            p.text-muted Create your account
+            = form_for resource, as: resource_name, url: registration_path(resource_name), validate: true do |f|
+              .input-group.mb-3
+                .input-group-prepend
+                  span.input-group-text
+                    i.icon-user
+                = f.text_field :username, autofocus: true, class: 'form-control', placeholder: 'Username'
+              .input-group.mb-3
+                .input-group-prepend
+                  span.input-group-text @
+                = f.email_field :email, class: 'form-control', placeholder: 'Email'
+              .input-group.mb-3
+                .input-group-prepend
+                  span.input-group-text
+                    i.icon-lock
+                = f.password_field :password, class: 'form-control', placeholder: 'Password', autocomplete: 'off'
+              .input-group.mb-4
+                .input-group-prepend
+                  span.input-group-text
+                    i.icon-lock
+                = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Repeat password', autcomplete: 'off'
+              = f.submit 'Create Account', class: 'btn btn-block btn-success'

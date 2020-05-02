@@ -1,0 +1,9 @@
+.col-xl-12
+  .m-portlet
+    .m-portlet__head
+      .m-portlet__head-caption
+        .m-portlet__head-title
+          span.m-portlet__head-icon.m--hide
+            i.la.la-gear
+          h3.m-portlet__head-text = t('.title')
+    = render 'form', role: @role

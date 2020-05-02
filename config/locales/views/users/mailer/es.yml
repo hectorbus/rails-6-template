@@ -1,0 +1,24 @@
+es:
+  users:
+    mailer:
+      confirmation_instructions:
+        welcome: ¡Bienvenido %{name}!
+        confirm: Confirmar mi cuenta
+        confirm_step_message: Confirma el email de tu cuenta dando click en el botón de abajo. Una vez confirmado, podrás ingresar al sistema con tu email y contraseña.
+      reset_password_instructions:
+        hello: ¡Hola %{name}!
+        instructions: Alguien ha solicitado un enlace para cambiar tu contraseña. Puedes hacerlo dando click en el botón de abajo.
+        change_password: Cambiar contraseña
+        ignore: Si tú no has realizado esta solicitud, por favor ignora este correo.
+        message: Tu contraseña no cambiará hasta que accedas al botón de arriba y especifiques una nueva.
+      unlock_instructions:
+        hello: ¡Hola %{name}!
+        message: Tu cuenta ha sido bloqueada debido a un número excesivo de intentos de inicio de sesión.
+        instructions: Para desbloquear tu cuenta haz click en el botón de abajo.
+        unlock: Desbloquear
+      email_changed:
+        hello: ¡Hola %{name}!
+        message: Nos comunicamos para notificarte que tu correo electrónico está siendo cambiado a %{email}.
+      password_change:
+        hello: ¡Hola %{name}!
+        message: Nos comunicamos para notificarte que tu contraseña ha sido cambiada.

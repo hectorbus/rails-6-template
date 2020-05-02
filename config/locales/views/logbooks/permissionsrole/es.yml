@@ -1,0 +1,9 @@
+es:
+  permissionsrole:
+    self:
+      create: Asignaste
+      destroy: Desasignaste
+    other:
+      create: asignó
+      destroy: retiró
+    resource: el permiso <b>%{permission}</b> al rol <b>%{role}</b>.

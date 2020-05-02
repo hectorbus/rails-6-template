@@ -1,0 +1,33 @@
+en:
+  notifications_masc:
+    info:
+      permissions_assigned: Permissions were totally assigned.
+      permission_assigned: "Permission assigned: %{permission}."
+      permission_removed: "Permission removed: %{permission}."
+    success:
+      resource:
+        created: The %{resource} was created correctly.
+        updated: The %{resource} was updated correctly.
+        destroyed: The %{resource} was destroyed correctly.
+        logical_delete: The %{resource} was deactivated.
+        restored: The %{resource} was restored correctly.
+      file:
+        destroyed: The file was destroyed correctly.
+    alert:
+      resource:
+        dependencies: It's not possible to destroy the %{resource} because of its dependencies.
+        destroyed: The %{resource} couldn't be destroyed.
+    error:
+  notifications_fem:
+    info:
+    success:
+      resource:
+        created: The %{resource} was created correctly.
+        updated: The %{resource} was updated correctly.
+        destroyed: The %{resource} was destroyed correctly.
+    alert:
+      resource:
+        dependencies: It's not possible to destroy the %{resource} because of its dependencies.
+    error:
+  pundit:
+    default: You cannot perform this action.

@@ -1,0 +1,17 @@
+.m-grid.m-grid--hor.m-grid--root.m-page.bg-container style="background-image: url('#{asset_path('bg/bg-3.jpg')}');"
+  .container
+    .row.justify-content-center
+      .col-md-5
+        .card-group
+          .card.p-4
+            .card-body
+              h1 = t('.change_password')
+              - if @minimum_password_length
+                p.text-muted = t('.password_instructions', char: @minimum_password_length)
+              = form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put } do |f|
+                = f.hidden_field :reset_password_token
+                .form-group.m-form__group
+                  = f.password_field :password, autofocus: true, class: 'form-control form-control m-input', placeholder: t('.new_password')
+                .form-group.m-form__group
+                  = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control form-control m-input', placeholder: t('.password_confirmation')
+                = f.submit t('helpers.send'), class: 'col-12 btn btn-focus m-btn--pill m-btn--custom'

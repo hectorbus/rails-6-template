@@ -1,0 +1,17 @@
+.role-permission-control {
+  .control {
+    display: inline-block;
+    width: 65px;
+  }
+
+  .title {
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    width: calc(100% - 65px);
+
+    span {
+      vertical-align: middle;
+    }
+  }
+}

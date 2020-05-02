@@ -1,0 +1,295 @@
+// Custom table with icons
+.table-custom {
+  .btn-pill {
+    border-radius: 60px;
+    height: 30px;
+    line-height: 15px;
+    margin: 0px 3px;
+    padding: 6px;
+    width: 30px;
+  }
+
+  thead tr {
+    height: 38px;
+  }
+
+  .tr-custom {
+    td, th {
+      vertical-align: middle;
+    }
+
+    .btn-pill {
+      opacity: .2;
+      transition: opacity .3s ease-out;
+      -moz-transition: opacity .3s ease-out;
+      -webkit-transition: opacity .3s ease-out;
+      -o-transition: opacity .3s ease-out;
+    }
+
+    &:hover .btn-pill{
+      opacity: 1;
+    }
+  }
+}
+
+// Style for action row for custom tables
+.actions-4 {
+  width: 165px;
+}
+
+.actions-3 {
+  width: 135px;
+}
+
+.actions-2 {
+  width: 100px;
+}
+
+// Custom search form
+.input-search-group {
+  @mixin search_properties(){
+    width: 150px !important;
+    padding-right: 30px;
+  }
+
+  .search-field{
+    border-radius: 20px !important;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition:  all .5s;
+    padding-right: 0px;
+    margin: 5px 0px;
+    width: 28px;
+    height: 33px;
+    left: 29px;
+    z-index: 0 !important;
+
+    &:focus, &[value] {
+      @include search_properties();
+    }
+
+    @media screen and (max-width: 1024px) {
+      @include search_properties();
+    }
+  }
+
+  button {
+    z-index: 9999;
+    padding-left: 7px;
+  }
+
+  &:hover .search-field, .expand-input {
+    @include search_properties();
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 185px;
+  }
+}
+
+// Custom user edit profile image
+.box-profile {
+  .profile-container {
+    text-align: center;
+
+    .profile-picture {
+      width: 130px;
+    }
+  }
+
+  .hover-image {
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    right: 4px;
+    left: 0;
+    margin: 0 auto;
+    text-align: center;
+    background: #0000003d;
+    opacity: 0;
+    cursor: pointer;
+
+    & > i {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      margin-bottom: 30px;
+      font-size: 35px;
+      color: white;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// Custom pagination
+.pagination-container {
+  .pagination {
+    display: initial;
+    text-align: right;
+
+    a, em.current, span {
+      border-radius: 50%;
+      cursor: pointer;
+      color: #898b96;
+      display: inline-block;
+      height: 2.25rem;
+      line-height: 18px;
+      min-width: 2.25rem;
+      padding: 0.5rem;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1rem;
+      font-style: inherit;
+      font-weight: 400;
+    }
+
+    .previous_page, .next_page, .disabled {
+      background: #ebe9f2;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .disabled {
+      cursor: default;
+      opacity: .6;
+    }
+
+    a:hover, em.current, .previous_page:hover, .next_page:hover {
+      background: #7067cd;
+      color: #f1f0f9;
+    }
+  }
+}
+
+// Custom per page pagination
+.per-page-container {
+  text-align: right;
+
+  .per-page-pagination {
+    background: #7067cd;
+    border-radius: 25px;
+    left: 0px;
+    height: 33px;
+    width: 75px !important;
+
+    .btn.dropdown-toggle {
+      padding: 0.85rem 1.15rem;
+    }
+
+    .btn.dropdown-toggle.btn-light {
+      border-color: transparent !important;
+      color: #ffffff !important;
+      line-height: 0.875rem;
+      font-size: 0.875rem;
+
+      &:focus {
+        outline: none !important;
+      }
+
+      .filter-option-inner {
+        padding-right: 10px;
+      }
+    }
+
+    &:hover {
+      background: #564ec0;
+    }
+  }
+
+  span.per-page-text {
+    margin-right: 5px;
+  }
+
+  & > form {
+    display: initial;
+  }
+}
+
+// Custom breadcrumbs for layout
+.custom-breadcrumb li {
+  display: inline;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// Custom timeline style
+.m-timeline-2-custom {
+  .m-timeline-2__item {
+
+    .m-timeline-2__item-time {
+      width: 90px;
+      text-align: right;
+      padding-right: 18px;
+      top: 16px;
+    }
+
+    .m-timeline-2__item-cricle{
+      left: 6.4rem !important;
+      top: 1.5rem !important;
+      background-color: white;
+      border: 0.01rem solid white !important;
+    }
+
+    .m-timeline-2__item-text{
+      padding-left: 7rem !important;
+      width: 100%;
+    }
+  }
+
+  .accordion-width{
+    width: 100%;
+
+    .m-accordion__item {
+      border-radius: 5px !important;
+    }
+  }
+
+  .custom-date{
+    background: #7067cd;
+    border: 0.4rem solid white !important;
+    border-radius: 10px !important;
+    color: white;
+    font-weight: 500;
+    left: 2.45rem !important;
+    padding: 5px 10px;
+    position: relative;
+    top: 1.23rem;
+    z-index: 1;
+    width: 120px;
+    text-align: center;
+  }
+
+  &:before{
+    left: 6.9rem !important;
+    top: 2rem;
+  }
+}
+
+// Custom text for errors in forms
+.field_with_errors {
+  width: 100%;
+  font-size: 80%;
+  color: #f86c6b;
+  label {
+    color: #ff4e3f;
+  }
+  input, select {
+    border-color: #f86c6b;
+  }
+}

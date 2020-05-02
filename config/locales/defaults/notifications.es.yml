@@ -1,0 +1,33 @@
+es:
+  notifications_masc:
+    info:
+      permissions_assigned: Los permisos fueron totalmente asignados.
+      permission_assigned: "Permiso asignado: %{permission}."
+      permission_removed: "Permiso removido: %{permission}."
+    success:
+      resource:
+        created: El %{resource} fue creado correctamente.
+        updated: El %{resource} fue actualizado correctamente.
+        destroyed: El %{resource} fue destruido correctamente.
+        logical_delete: El %{resource} fue desactivado.
+        restored: El %{resource} fue restaurado correctamente.
+      file:
+        destroyed: El archivo fue destruido correctamente.
+    alert:
+      resource:
+        dependencies: No es posible eliminar el %{resource} ya que tiene dependencias.
+        destroyed: El %{resource} no pudo ser destruido.
+    error:
+  notifications_fem:
+    info:
+    success:
+      resource:
+        created: La %{resource} fue creada correctamente.
+        updated: La %{resource} fue actualizada correctamente.
+        destroyed: La %{resource} fue destruída correctamente.
+    alert:
+      resource:
+        dependencies: No es posible eliminar la %{resource} ya que tiene dependencias.
+    error:
+  pundit:
+    default: No puedes realizar esta acción.

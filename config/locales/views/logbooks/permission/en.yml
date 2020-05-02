@@ -1,0 +1,11 @@
+en:
+  permission:
+    self:
+      create: You created
+      update: You updated
+      destroy: You deleted
+    other:
+      create: created
+      update: updated
+      destroy: deleted
+    resource: the permission <b>%{resource}</b>.

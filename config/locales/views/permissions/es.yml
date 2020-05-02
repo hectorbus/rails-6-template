@@ -1,0 +1,27 @@
+es:
+  permissions:
+    index:
+      title: Permisos
+      resource: el permiso
+      name: Nombre
+      description: Descripción
+      controller: Controlador
+      action: Actividades
+      one: Permiso
+      other: Permisos
+      action_seeds: Crear Semillas
+      count_table:
+        one: 1 Permiso
+        other: '%{count} Permisos'
+    form:
+      title: Permiso
+      role: Rol
+      back: Ir a permisos
+      resource: permiso
+      back_resource: permisos
+    new:
+      title: Nuevo permiso
+    edit:
+      title: Editar permiso
+  breadcrumbs:
+    permissions: Permisos

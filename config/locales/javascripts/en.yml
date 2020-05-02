@@ -1,0 +1,20 @@
+en:
+  messages:
+    very_weak_password: Very weak
+    weak_password: Weak
+    okay_password: Okay
+    strong_password: Strong
+    very_strong_password: Very strong
+    processing_message: Please wait...
+    ok: Ok
+    confirm: Confirm
+    delete: Delete
+    cancel: Cancel
+    done: Done!
+    deleted: It was succesfully deleted
+    error: Error deleting
+    try_again: Please try again
+    profile_file_type: You must upload an image file format.
+    profile_file_size: The maximum allowable size of the image is 5MB.
+    seeds_success: Seeds created correctly
+    seeds_error: Error creating seeds

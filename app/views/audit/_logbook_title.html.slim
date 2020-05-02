@@ -1,0 +1,114 @@
+- if logbook.auditable_type != 'User' and logbook.user_id != nil
+  - if user.id == logbook.user_id
+    = t("#{ logbook.auditable_type.downcase}.self.#{logbook.action}")
+  - else
+    b = logbook.user_full_name
+    span>
+    = t("#{ logbook.auditable_type.downcase}.other.#{logbook.action}")
+  span>
+  = t("#{ logbook.auditable_type.downcase}.resource", resource: logbook.auditable_name,
+          role: logbook.audited_changes['role_name'], permission: logbook.audited_changes['permission_name']).html_safe
+- elsif logbook.user_id != nil
+  - if logbook.audited_changes.keys[0] == 'encrypted_password'
+    // Account password change.
+      Sees he change his own password.
+    - if user.id == logbook.auditable_id and logbook.user_id == logbook.auditable_id
+      = t('user.self.change.password')
+      // Sees someone change his password.
+    - elsif user.id == logbook.auditable_id and logbook.user_id != logbook.auditable_id
+      b = logbook.user_full_name
+      span>
+      = t('user.your.change.password').html_safe
+      // Sees he change someones password.
+    - elsif user.id == logbook.user_id and user.id != logbook.auditable_id
+      = t('user.self.change.someones_password', resource: logbook.auditable_name).html_safe
+    - elsif user.id != logbook.user_id and user.id != logbook.auditable_id
+      b = logbook.user_full_name
+      span>
+      // Sees someone change his own password
+      - if logbook.user_id == logbook.auditable_id
+        = t('user.other.change.password')
+        // Sees someone change someones password.
+      - else
+        = t('user.other.change.someones_password', resource: logbook.auditable_name).html_safe
+  - elsif %w(sign_in_count current_sign_in_at).include?(logbook.audited_changes.keys[0])
+    // Login record.
+    - if user.id != logbook.user_id
+      b = logbook.user_full_name
+      span>
+      = t('user.other.change.session')
+    - else
+      = t('user.self.change.session')
+  - elsif logbook.action == 'update'
+    // Profile change.
+        Sees he change his own profile.
+    - if user.id == logbook.auditable_id and logbook.user_id == logbook.auditable_id
+      = t('user.self.change.profile')
+      // Sees someone change his password.
+    - elsif user.id == logbook.auditable_id and logbook.user_id != logbook.auditable_id
+      b = logbook.user_full_name
+      span>
+      = t('user.your.change.profile').html_safe
+      // Sees he change someones password.
+    - elsif user.id == logbook.user_id and user.id != logbook.auditable_id
+      = t('user.self.update')
+      span>
+      = t('user.resource', resource: logbook.auditable_name).html_safe
+
+    - elsif user.id != logbook.user_id and user.id != logbook.auditable_id
+      b = logbook.user_full_name
+      span>
+      // Sees someone change his own profile
+      - if logbook.user_id == logbook.auditable_id
+        = t('user.other.change.profile')
+        // Sees someone change someones profile.
+      - else
+        = t('user.other.update')
+        span>
+        = t('user.resource', resource: logbook.auditable_name).html_safe
+  - elsif logbook.action == 'create'
+    // Create User.
+      Sees someone created his account.
+    - if user.id == logbook.auditable_id and logbook.user_id != logbook.auditable_id
+      b = logbook.user_full_name
+      span>
+      = t('user.your.change.create').html_safe
+      // Sees he created someones account.
+    - elsif user.id == logbook.user_id and user.id != logbook.auditable_id
+      = t('user.self.create')
+      span>
+      = t('user.resource', resource: logbook.auditable_name).html_safe
+      // Sees someone created someones account.
+    - elsif user.id != logbook.user_id and user.id != logbook.auditable_id
+      b = logbook.user_full_name
+      span>
+      = t('user.other.create')
+      span>
+      = t('user.resource', resource: logbook.auditable_name).html_safe
+  - elsif logbook.action == 'destroy'
+    // Destroy User.
+      Sees he deleted someones account.
+    - if user.id == logbook.user_id and user.id != logbook.auditable_id
+      = t('user.self.destroy')
+      span>
+      = t('user.resource', resource: logbook.auditable_name).html_safe
+      // Sees someone deleted someones account.
+    - elsif user.id != logbook.user_id and user.id != logbook.auditable_id
+      b = logbook.user_full_name
+      span>
+      = t('user.other.destroy')
+      span>
+      = t('user.resource', resource: logbook.auditable_name).html_safe
+- else
+  // Account password reset.
+  - if user.id == logbook.auditable_id and logbook.audited_changes.keys[0] == 'reset_password_token'
+    = t('user.self.change.password_token', resource: logbook.auditable_name).html_safe
+  - elsif logbook.audited_changes.keys[0] == 'reset_password_token'
+    = t('user.password_token', resource: logbook.auditable_name).html_safe
+  - elsif user.id == logbook.auditable_id and logbook.audited_changes.keys[0] == 'confirmed_at'
+    // Account confirmation log.
+    = t('user.self.confirmation', resource: logbook.auditable_name).html_safe
+  - elsif logbook.audited_changes.keys[0] == 'confirmed_at'
+    = t('user.confirmation', resource: logbook.auditable_name).html_safe
+  - elsif logbook.user_id.nil? and logbook.auditable_type == 'User'
+    = t("user.#{logbook.action}", resource: logbook.auditable_name).html_safe

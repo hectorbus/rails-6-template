@@ -1,0 +1,27 @@
+= form_for role, validate: true, html: {class: 'm-form m-form--fit'} do |f|
+  .m-portlet__body
+    .form-group.m-form__group.row
+      = f.label :name, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :name, class: 'form-control m-input', placeholder: t('activerecord.attributes.role.name')
+    .form-group.m-form__group.row
+      = f.label :key, class:'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :key, class:'form-control m-input', placeholder: t('activerecord.attributes.role.key')
+    .form-group.m-form__group.row
+      = f.label :scope, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.select :scope, Role.i18n_scopes, {include_blank: t('helpers.select.prompt')},
+                class: 'form-control m-input selectpicker'
+    .form-group.m-form__group.row
+      = f.label :description, class: 'col-sm-2 col-form-label'
+      .col-sm-10
+        = f.text_field :description, class:'form-control m-input'
+  .m-portlet__foot.m-portlet__no-border.m-portlet__foot--fit
+    .m-form__actions.m-form__actions--solid
+      .row
+        .col-lg-12
+          = f.submit t('helpers.submit.submit', model: t('.resource')), class: 'btn btn-primary'
+          - if has_policy(Role, %w(index))
+            =< link_to roles_path, class: 'btn btn-secondary'
+              = t('helpers.go_to', resource: t('.back_resource'))

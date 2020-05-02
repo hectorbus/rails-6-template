@@ -1,0 +1,9 @@
+en:
+  permissionsrole:
+    self:
+      create: You assigned
+      destroy: You unassigned
+    other:
+      create: assigned
+      destroy: unassigned
+    resource: the permission <b>%{permission}</b> to the role <b>%{role}</b>.

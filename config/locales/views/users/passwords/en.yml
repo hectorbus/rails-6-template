@@ -1,0 +1,13 @@
+en:
+  users:
+    passwords:
+      new:
+        title: New password
+        forgot_password: Forgot your password?
+        send_instructions: Send reset password instructions.
+      edit:
+        title: Edit password
+        change_password: Change your password
+        password_instructions: 'Password must be at least %{char} characters long.'
+        new_password: New password
+        password_confirmation: Password confirmation

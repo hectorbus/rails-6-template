@@ -1,0 +1,26 @@
+- if flash.any?
+  div#notifications data-notifications=flash.to_a
+  /script [type="text/javascript"]
+    | var time = 5000;
+              var increment = 500;
+    - flash.each do |f|
+      - type = f[0].to_s.split('_')[0].gsub('alert', 'warning').gsub('notice', 'info')
+      | toastr.options = {
+               closeButton: true,
+               debug: false,
+               newestOnTop: true,
+               progressBar: false,
+               positionClass: 'toast-top-right',
+               preventDuplicates: false,
+               onclick: null,
+               showDuration: 300,
+               hideDuration: 500,
+               timeOut: time,
+               extendedTimeOut: '1000',
+               showEasing: 'swing',
+               hideEasing: 'linear',
+               showMethod: 'fadeIn',
+               hideMethod: 'fadeOut'
+              };
+              toastr['#{type}']('#{f[1]}');
+              time += increment;

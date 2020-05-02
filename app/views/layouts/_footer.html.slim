@@ -1,0 +1,19 @@
+footer.m-grid__item.m-footer
+  .m-container.m-container--fluid.m-container--full-height.m-page__container
+    .m-stack.m-stack--flex-tablet-and-mobile.m-stack--ver.m-stack--desktop
+      .m-stack__item.m-stack__item--left.m-stack__item--middle.m-stack__item--last
+        span.m-footer__copyright
+        span
+          = "#{Time.now.year } © "
+          a.m-link href="#" target="_blank" Company Name
+      .m-stack__item.m-stack__item--right.m-stack__item--middle.m-stack__item--first
+        ul.m-footer__nav.m-nav.m-nav--inline.m--pull-right
+          li.m-nav__item
+            a.m-nav__link href="#"
+              span.m-nav__link-text About
+          li.m-nav__item
+            a.m-nav__link href="#"
+              span.m-nav__link-text Privacy
+          li.m-nav__item
+            a.m-nav__link href="#"
+              span.m-nav__link-text T&amp;C
