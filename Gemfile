@@ -39,7 +39,7 @@ gem 'will_paginate', '~> 3.1.0'
 # ClientSideValidations for Ruby on Rails
 gem 'client_side_validations', '~> 16.0.3'
 # Use to upload files
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 # Audited logs all changes to your models.
 gem 'audited', '~> 4.8'
 # Seedbank to structure your apps seed data instead of having it all dumped into one large file.
